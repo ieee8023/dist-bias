@@ -6,6 +6,11 @@ from PIL import Image
 import PIL
 import random
 
+import numpy as np
+
+import skimage
+from skimage.io import imread, imsave
+
 class UnalignedDataset(BaseDataset):
     def initialize(self, opt):
         self.opt = opt
@@ -31,9 +36,16 @@ class UnalignedDataset(BaseDataset):
             index_B = random.randint(0, self.B_size - 1)
         B_path = self.B_paths[index_B]
         # print('(A, B) = (%d, %d)' % (index_A, index_B))
-        A_img = Image.open(A_path).convert('RGB')
-        B_img = Image.open(B_path).convert('RGB')
+        #A_img = Image.open(A_path).convert('RGB')
+        #B_img = Image.open(B_path).convert('RGB')
+        
+        A_img = imread(A_path)
+        B_img = imread(B_path)
 
+        #A_img = np.asarray(np.dstack((A_img, A_img, A_img)))
+        #B_img = np.asarray(np.dstack((B_img, B_img, B_img)) )                  
+                           
+        
         A = self.transform(A_img)
         B = self.transform(B_img)
         if self.opt.which_direction == 'BtoA':
@@ -43,13 +55,6 @@ class UnalignedDataset(BaseDataset):
             input_nc = self.opt.input_nc
             output_nc = self.opt.output_nc
 
-        if input_nc == 1:  # RGB to gray
-            tmp = A[0, ...] * 0.299 + A[1, ...] * 0.587 + A[2, ...] * 0.114
-            A = tmp.unsqueeze(0)
-
-        if output_nc == 1:  # RGB to gray
-            tmp = B[0, ...] * 0.299 + B[1, ...] * 0.587 + B[2, ...] * 0.114
-            B = tmp.unsqueeze(0)
         return {'A': A, 'B': B,
                 'A_paths': A_path, 'B_paths': B_path}
 
