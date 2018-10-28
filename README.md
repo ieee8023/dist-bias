@@ -30,6 +30,8 @@ Train the classifier and classify images:
 [prepare_data.ipynb](train_classifier.ipynb)
 
 
+![](figures/vary-bias.png)
+
 
 ## Requirements
 
