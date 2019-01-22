@@ -51,3 +51,20 @@ source activate pytorch
 conda install pytorch torchvision cuda80 -c soumith
 ```
 
+# T-NT Dataset
+
+If you are looking for the dataset used in this paper we have created a dataset called T-NT which contains MRI slides with and without tumors. 
+
+Download it here: https://academictorrents.com/details/d52ccc21455c7a82fd6e58964c89b7da99e0edf7
+
+It includes segmentations:
+
+![](https://i.imgur.com/WIKFhO1.png)
+
+Sample Flair Images
+
+| Tumor   |      NoTumor      | 
+|:----------:|:-------------:|
+| ![](https://i.imgur.com/3305V4u.png) |  ![](https://i.imgur.com/QDVB4fo.png)| 
+| ![](https://i.imgur.com/kGHfa8Q.png) | ![](https://i.imgur.com/MKA9vxK.png)|
+
