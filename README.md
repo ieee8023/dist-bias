@@ -26,18 +26,6 @@ $cd cyclegan
 $sh run.sh
 ```
 
-Normalize the data to train the classifier
-
-```
-$cd cyclegan
-$sh create_normalize_train_data.sh
-```
-
-Train the classifier and classify images:
-
-[prepare_data.ipynb](train_classifier.ipynb)
-
-
 ![](figures/vary-bias.png)
 
 
