@@ -16,13 +16,15 @@ Prepare the data
 Run the cyclegan for each split
 
 ```
-$sh ...sh
+$cd cyclegan
+$sh run.sh
 ```
 
 Normalize the data to train the classifier
 
 ```
-$sh ...sh
+$cd cyclegan
+$sh create_normalize_train_data.sh
 ```
 
 Train the classifier and classify images:
